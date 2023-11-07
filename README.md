@@ -7,7 +7,8 @@ CITESeQC is an R package that enables comprehensive, quantitative, and reproduci
 3. For reproducible QC, CITESeQC will guide users through a simple linear process that results in a full markdown report with supporting figures and explanations with minimal intervention from the user.
 
 ##  Installation
-1. Install the package using the "devtools" package 
+1. Install the package using the "devtools" package
+   
 ```
 # Install devtools package if not already installed
 if (!require(devtools)) {
@@ -17,8 +18,10 @@ if (!require(devtools)) {
 # Install the package from GitHub
 devtools::install_github("sunjie001130/CITESeQC")
 ```
+
+
 2. Install the package using the "remotes" package
-3. 
+   
 ```
 # Install remotes package if not already installed
 if (!require(remotes)) {
