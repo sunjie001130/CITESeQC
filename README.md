@@ -28,7 +28,7 @@ if (!require(remotes)) {
   install.packages("remotes")
 }
 
-# Install your package from GitHub
+# Install the package from GitHub
 remotes::install_github("sunjie001130/CITESeQC")
 ```
 
