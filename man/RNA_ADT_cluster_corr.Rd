@@ -21,4 +21,4 @@
   Jie Sun
 }
 \keyword{plot}
-\export{RNA_ADT_cluster_corr}
+\keyword{export}{RNA_ADT_cluster_corr}
