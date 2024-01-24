@@ -22,4 +22,4 @@
   Jie Sun
 }
 \keyword{plot}
-\keyword{export}{RNA_mt_read_corr}
+\keyword{export}
