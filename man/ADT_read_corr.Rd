@@ -18,7 +18,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{plot}
-\export{ADT_read_corr}
+\keyword{export}{ADT_read_corr}
