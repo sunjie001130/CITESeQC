@@ -17,7 +17,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{visualization}
-\export{RNA_dist}
+\keyword{export}{RNA_dist}
