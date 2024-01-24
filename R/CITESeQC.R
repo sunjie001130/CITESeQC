@@ -125,7 +125,6 @@ RNA_mt_read_corr <- function(pbmc, cutoff_lo = 200, cutoff_hi = 2500, cutoff_mt 
     labs(x = "nFeature_RNA", y = "% of MT", title = "Scatter Plot with Correlation and Red Lines") +
     ggtitle("Correlation between the number of detected genes and the percentage of MT") +
     theme_minimal()
-  return(pbmc)
 }
 
 #' Filter cells based on specified cutoffs.
