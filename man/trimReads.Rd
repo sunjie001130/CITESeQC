@@ -19,7 +19,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{preprocessing}
-\export{trimReads}
+\keyword{export}{trimReads}
