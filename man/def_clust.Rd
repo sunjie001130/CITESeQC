@@ -21,4 +21,4 @@
   Jie Sun
 }
 \keyword{clustering}
-\keyword{export}{def_clust}
+\keyword{export}
