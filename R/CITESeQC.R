@@ -1,21 +1,3 @@
-Package: CITESeQC
-Type: Package
-Title: A brief title of your package
-Version: 0.9.1
-Author: Jie Sun
-Maintainer: jis117@pitt.edu
-Description: CITE-seq data QC package
-Imports:
-  Seurat,
-  hdf5r,
-  tidyverse,
-  SeuratDisk,
-  patchwork,
-  grid,
-  gridExtra,
-  magick,
-  ggplot2,
-  celldex
 #' Read CITE-seq data from an HDF5 file and create a Seurat object.
 #'
 #' @param filePath Path to the HDF5 file.
