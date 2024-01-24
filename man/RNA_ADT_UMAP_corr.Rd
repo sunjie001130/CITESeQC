@@ -18,7 +18,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{plot}
-\export{RNA_ADT_UMAP_corr}
+\keyword{export}{RNA_ADT_UMAP_corr}
