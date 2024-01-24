@@ -18,7 +18,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{histogram}
-\export{multiRNA_hist}
+\keyword{export}{multiRNA_hist}
