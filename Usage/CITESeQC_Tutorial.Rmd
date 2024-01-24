@@ -1,0 +1,124 @@
+---
+title: "CITESeQC Tutorial"
+author: "Jie Sun"
+date: "2024-01-11"
+output: html_document
+---
+
+## install package and library dependencies
+```{r, warning = FALSE, echo = FALSE}
+devtools::install_github("sunjie001130/CITESeQC", force = TRUE)
+library(CITESeQC)
+library(Seurat)
+library(hdf5r)
+library(tidyverse)
+library(SeuratDisk)
+library(patchwork)
+library(grid)
+library(gridExtra)
+library(magick)
+library(ggplot2)
+library(celldex)
+library(gridExtra)
+```
+
+## Read in data from the h5 file and create a Seurat object
+```{r, warning = FALSE}
+filePath <- "/Users/sunjie/Desktop/CiteSeq/CITESeQC/pbmc_10k_protein_v3_filtered_feature_bc_matrix.h5" # change to your own file path
+pbmc <- readCITEseqData(filePath)
+```
+
+# RNA_read_corr()
+## ‘RNA_read_corr()’ produces a scatterplot correlating the number of detected genes with the total number of molecules identified in the transcriptome. 
+## Since the cutoffs for good-quality cells will be passed as the arguments to the function, users can modify them for their data.  
+
+```{r, warning = FALSE}
+RNA_read_corr(pbmc)
+```
+
+# ADT_read_corr()
+## ‘ADT_read_corr()’ produces a scatterplot correlating the number of detected ADTs with the total number of ADT molecules identified on the cell surfaces. 
+## Since the cutoffs identifying good-quality cells are annotated on the plot as passed as the arguments of the function, users can modify them for their data.
+```{r, warning = FALSE}
+ADT_read_corr(pbmc)
+```
+
+# RNA_mt_read_corr()
+## ‘RNA_mt_read_corr()’ produces a scatterplot correlating the number of molecules identified in the transcriptome with the percentage of the mitochondrial genes. 
+## With the correlation coefficient, users can test the hypothesis that the mitochondrial percentage should be constant regardless of the number of identified molecules.
+```{r, warning = FALSE}
+RNA_mt_read_corr(pbmc)
+```
+## Filter cells based the cutoff as input by user.
+## If you don't want to filter out anything, just skip this step.
+```{r, warning = FALSE}
+pbmc.trim <- trimReads(pbmc)
+```
+
+# def_clust()
+## ‘def_clust()’ either defines the cell clusters based on the input gene expression matrix or imports the definition. 
+## Specifically, it will employ Seurat to cluster the cells to the input clustering resolution and identify marker genes for each cluster for later use. 
+```{r, warning = FALSE, echo = FALSE}
+pbmc_clust <- def_clust(pbmc.trim)
+```
+
+# RNA_dist()
+## ‘RNA_dist()’ visualizes the specificity of the input gene expression across the cell clusters defined or imported through def_clust(). 
+## For quantification and comparison, it will calculate Shannon entropy on the expression distribution across the clusters. 
+```{r, warning = FALSE}
+RNA_dist(pbmc_clust$pbmc, "CCR7")
+```
+
+# multiRNA_hist()
+## ‘multiRNA_hist()’ is a histogram of normalized Shannon entropy values of the marker genes identified in def_clust().
+## The histogram will plot how specific the marker genes are across the clusters. Users can modify the number of marker genes.  
+```{r, warning = FALSE}
+multiRNA_hist(pbmc_clust$pbmc, pbmc_clust$markerListGEX)
+```
+
+# ADT_dist()
+## ‘ADT_dist()’ visualizes the specificity of the input ADT abundance across the cell clusters. Specifically, it will calculate Shannon entropy on the expression distribution across the clusters.
+```{r, warning = FALSE}
+ADT_dist(pbmc_clust$pbmc, "CD14-TotalSeqB")
+```
+
+# multiADT_hist()
+## ‘multiADT_hist()’ is a histogram of normalized Shannon entropy values of all ADTs identified for the cell clusters. 
+```{r, warning = FALSE}
+ADTs <- c("CD14-TotalSeqB", "CD4-TotalSeqB", "TIGIT-TotalSeqB", "CD8a-TotalSeqB", "CD19-TotalSeqB")
+multiADT_hist(pbmc_clust$pbmc, ADTs)
+```
+
+# RNA_ADT_read_corr()
+## ‘RNA_ADT_read_corr()’ produces a scatterplot showing the correlation between the number of assayed genes in the transcriptome and the number of assayed cell surface proteins across the cells.
+```{r, warning = FALSE}
+RNA_ADT_read_corr(pbmc_clust$pbmc)
+```
+
+# RNA_ADT_UMAP_corr()
+## ‘RNA_ADT_UMAP_corr()’ produces pairs of UMAP plots and a scatterplot. Each UMAP plot pair is drawn for the abundance of the input ADT and the corresponding gene expression, respectively. The scatterplot plots the abundance of ADTs and the expression of the RNAs of the input gene.  
+```{r, warning = FALSE}
+RNA_ADT_UMAP_corr(pbmc_clust$pbmc, "rna_CD14", "adt_CD14-TotalSeqB")
+```
+
+# RNA_ADT_cluster_corr()
+## ‘RNA_ADT_cluster_corr()’ is a set of scatterplots each drawn for each cell cluster, showing the correlation between the input ADT abundance and the corresponding gene expression for the cluster. 
+```{r, warning = FALSE}
+RNA_ADT_cluster_corr(pbmc_clust$pbmc, "rna_CD14", "adt_CD14-TotalSeqB")
+```
+
+# RNA_ADT_hist()
+## ‘RNA_ADT_hist()’ is a histogram of the correlation coefficients in all pairs of ADTs and the corresponding genes in expression.  
+## Function to create scatter plots and histograms for correlation coefficients.
+```{r, warning = FALSE}
+RNA_features <- c('rna_CD14', 'rna_CD4', 'rna_TIGIT', 'rna_CD8A', 'rna_CD19')
+ADT_features <- c('adt_CD14-TotalSeqB', 'adt_CD4-TotalSeqB', 'adt_TIGIT-TotalSeqB', 'adt_CD8a-TotalSeqB', 'adt_CD19-TotalSeqB')
+RNA_ADT_hist(pbmc_clust$pbmc, RNA_features, ADT_features)
+```
+
+# RNA_ADT_cluster_hist()
+## ‘RNA_ADT_cluster_hist()’ is a set of histograms, each showing the distribution of the correlation coefficients in all pairs of ADTs and the corresponding genes for each cell cluster. 
+```{r, warning = FALSE}
+RNA_ADT_cluster_hist(pbmc_clust$pbmc, RNA_features, ADT_features)
+```
+
