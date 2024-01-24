@@ -22,4 +22,4 @@
   Jie Sun
 }
 \keyword{preprocessing}
-\keyword{export}{trimReads}
+\keyword{export}
