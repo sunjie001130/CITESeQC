@@ -22,4 +22,4 @@
   Jie Sun
 }
 \keyword{data}
-\keyword{export}{readCITEseqData}
+\keyword{export}
