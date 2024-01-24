@@ -20,4 +20,4 @@
   Jie Sun
 }
 \keyword{histogram}
-\keyword{export}{multiADT_hist}
+\keyword{export}
