@@ -21,4 +21,4 @@
   Jie Sun
 }
 \keyword{plot}
-\keyword{export}{RNA_ADT_UMAP_corr}
+\keyword{export}
