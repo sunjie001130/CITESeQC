@@ -17,7 +17,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{histogram}
-\export{multiADT_hist}
+\keyword{export}{multiADT_hist}
