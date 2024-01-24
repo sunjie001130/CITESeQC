@@ -18,7 +18,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{clustering}
-\export{def_clust}
+\keyword{export}{def_clust}
