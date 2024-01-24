@@ -21,4 +21,4 @@
   Jie Sun
 }
 \keyword{plot}
-\keyword{export}{RNA_read_corr}
+\keyword{export}
