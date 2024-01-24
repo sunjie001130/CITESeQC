@@ -19,7 +19,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{data}
-\export{readCITEseqData}
+\keyword{export}{readCITEseqData}
