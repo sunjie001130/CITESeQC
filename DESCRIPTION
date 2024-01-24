@@ -3,6 +3,6 @@ Type: Package
 Title: CITE-seq data quality control package
 Version: 0.1.0
 Author: Jie Sun
-Maintainer: jis117@pitt.edu
+Maintainer: Jie Sun <jis117@pitt.edu>
 Description: Quantitative measures to assess the quality of Cellular Indexing of Transcriptomes and Epitopes by Sequencing (CITE-seq) data.
 License: Year 2024; COPYRIGHT HOLDER: Jie Sun
