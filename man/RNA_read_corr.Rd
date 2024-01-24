@@ -18,7 +18,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{plot}
-\export{RNA_read_corr}
+\keyword{export}{RNA_read_corr}
