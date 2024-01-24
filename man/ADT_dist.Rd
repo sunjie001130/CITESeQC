@@ -20,4 +20,4 @@
   Jie Sun
 }
 \keyword{visualization}
-\keyword{export}{ADT_dist}
+\keyword{export}
