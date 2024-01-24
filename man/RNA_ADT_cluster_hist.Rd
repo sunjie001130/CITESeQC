@@ -21,4 +21,4 @@
   Jie Sun
 }
 \keyword{histogram}
-\export{RNA_ADT_cluster_hist}
+\keyword{export}{RNA_ADT_cluster_hist}
