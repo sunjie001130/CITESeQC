@@ -20,4 +20,4 @@
   Jie Sun
 }
 \keyword{visualization}
-\keyword{export}{RNA_dist}
+\keyword{export}
