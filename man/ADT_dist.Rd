@@ -17,7 +17,7 @@
   }
 }
 \author{
-  Your Name
+  Jie Sun
 }
 \keyword{visualization}
-\export{ADT_dist}
+\keyword{export}{ADT_dist}
