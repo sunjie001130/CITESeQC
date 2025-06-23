@@ -178,6 +178,9 @@ def_clust <- function(pbmc, use_existing_clusters = FALSE, resolution = 0.8) {
   pbmc <- FindNeighbors(pbmc, dims = 1:15, verbose = FALSE) 
   pbmc <- FindClusters(pbmc, verbose = FALSE, resolution = resolution)
   Idents(pbmc) <- "seurat_clusters"
+
+  # Normalize ADT assay
+  pbmc <- NormalizeData(pbmc, normalization.method = "CLR", margin = 2, assay = "ADT")
   
   # Generate a marker heatmap based upon the GEX clusters
   markerListGEX <- FindAllMarkers(pbmc, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
@@ -371,7 +374,7 @@ RNA_ADT_UMAP_corr <- function(pbmc, rna_feature, adt_feature) {
     object = pbmc,
     feature1 = rna_feature,
     feature2 = adt_feature,
-    cols = rep("black", 15)
+    cols = rep("black", length(unique(pbmc$seurat_clusters)))
   ) + NoLegend() +
     annotate(
       "text",
