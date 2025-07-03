@@ -1,0 +1,20 @@
+# Imports
+import(Seurat)
+import(hdf5r)
+
+# Exported functions
+export(readCITEseqData)
+export(RNA_read_corr)
+export(ADT_read_corr)
+export(RNA_mt_read_corr)
+export(trimReads)
+export(def_clust)
+export(RNA_dist)
+export(multiRNA_hist)
+export(ADT_dist)
+export(multiADT_hist)
+export(RNA_ADT_read_corr)
+export(RNA_ADT_UMAP_corr)
+export(RNA_ADT_cluster_corr)
+export(RNA_ADT_hist)
+export(RNA_ADT_cluster_hist)
