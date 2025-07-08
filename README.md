@@ -33,7 +33,7 @@ remotes::install_github("sunjie001130/CITESeQC")
 ```
 
 ##  Tutorial
-An example R markdown file in PDF version, as well as the dataset used in the example, are provided.
+An example R markdown file in html version, as well as the dataset used in the example, are provided.
 
 ## Library Dependencies
 Please install the following packages before using the CITESeQC tool.
